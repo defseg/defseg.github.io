@@ -5,24 +5,21 @@
         font-family: "LessPerfectDOSVGA";
         src: url("theme/lpdosvga.ttf");
       }
-      div {
+      section {
         border-style: solid;
         border-width: 20px 24px 36px 16px;
         border-image: url("theme/qbborder.png") 20 24 36 16;
         background-color: #a7a7a7;
-        margin-bottom: 20px;
-        margin-left: auto;
-        margin-right: auto;
+        margin: 0 auto 20px auto;
+        position: relative;
       }
       @media (min-width: 500px) {
-        div {
+        section {
           width: 448px;
         }
       }
       body { 
-        margin-top: 20px;
-        margin-left: 0;
-        margin-right: 0;
+        margin: 20px 0 0 0;
         background-color: #0000a7;
         font-family: "LessPerfectDOSVGA", monospace;
       }
@@ -36,14 +33,52 @@
          background-color: #a7a7a7;
          color: #0000a7;
       }
+      .section-header {
+        position: absolute;
+        top: -20;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+        background-color: #a7a7a7;
+        color: #000;
+      }
+      .headertext::before, .section-header::before {
+        content: "\00a0";
+      }
+      .headertext::after, .section-header::after {
+        content: "\00a0";
+      }
+      ul {
+        padding-left: 12px;
+        margin: 0;
+      }
     </style>
 </head>
 <body>
     <header>
-        <span class="headertext">&nbsp;DEF SEG&nbsp;</span>
+        <span class="headertext">DEF SEG</span>
     </header>
-    <div>
-        Hello World
-    </div>
+    <section>
+        <div class="section-header">Tools</div>
+        <ul>
+          <li>
+            <a href="joyjs">JoyJS</a> - A <a href="hypercubed.github.io/joy/joy.html">Joy</a> interpreter in the browser. Currently incomplete - see <a href="https://defseg.io/joyjs/test/all.html">here</a> for a list of implemented commands.
+          </li>
+          <li>
+            <a href="https://github.com/defseg/vaalbara">Vaalbara</a> - A taskbar multitool. 
+          </li>
+        </ul>
+    </section>
+    <section>
+      <div class="section-header">Games</div>
+      <ul>
+        <li>
+          <a href="asteroids">Asteroids</a>
+        </li>
+        <li>
+          <a href="snake360">Snake360</a>
+        </li>
+      </ul>
+    </section>
 </body>
 </html>
