@@ -1,0 +1,51 @@
+@font-face { 
+  font-family: "LessPerfectDOSVGA";
+  src: url("theme/lpdosvga.ttf");
+}
+section {
+  border-style: solid;
+  border-width: 20px 24px 36px 16px;
+  border-image: url("theme/qbborder.png") 20 24 36 16;
+  background-color: #a7a7a7;
+  margin: 0 auto 20px auto;
+  position: relative;
+}
+@media (min-width: 500px) {
+  section {
+    width: 448px;
+  }
+}
+body { 
+  margin: 20px 0 0 0;
+  background-color: #0000a7;
+  font-family: "LessPerfectDOSVGA", monospace;
+}
+header {
+   background-image: url("theme/qbheader.png");
+   text-align: center;
+   margin-bottom: 20px;
+}
+.headertext { 
+   height: 20px;
+   background-color: #a7a7a7;
+   color: #0000a7;
+}
+.section-header {
+  position: absolute;
+  top: -20;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  background-color: #a7a7a7;
+  color: #000;
+}
+.headertext::before, .section-header::before {
+  content: "\00a0";
+}
+.headertext::after, .section-header::after {
+  content: "\00a0";
+}
+ul {
+  padding-left: 12px;
+  margin: 0;
+}
