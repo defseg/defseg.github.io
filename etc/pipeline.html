@@ -1,0 +1,56 @@
+<html>
+<head>
+	<title>
+		How to try the JS pipeline
+	</title>
+	<link href="../style.css" rel="stylesheet" type="text/css" />
+	<style type='text/css'>
+	body {
+		font-size: 16px;
+	}
+		pre, code {
+			white-space: pre-wrap;
+			font-family: "LessPerfectDOSVGA", monospace;
+			background-color: black;
+			color: #a7a7a7;
+		}
+		pre {
+			border: 2px solid black;
+		}
+		code {
+			border-left: 2px solid black;
+			border-right: 2px solid black;
+		}
+		section {
+			padding-right: 8px;
+		}
+	</style>
+</head>
+<body>
+	<section>
+		<div class='section-header'>How to try the JS pipeline</div>
+	<p>
+		There's a <a href="https://itnext.io/how-to-try-the-javascript-pipeline-operator-today-e3f75eb12cf1">post</a> out there on how to try the JavaScript pipeline operator in Node, but it's a little out of date. Babel <a href="https://babeljs.io/blog/2018/07/27/removing-babels-stage-presets">removed its Stage presets</a>, so the instructions given there won't work anymore. Here's what to do now.
+	</p>
+	<p>
+		First, make and navigate into a new directory, and run this:
+		<pre>$ npm init -y
+$ npm install --save @babel/cli @babel/core @babel/plugin-proposal-pipeline-operator</pre>
+	This gives you a <code>package.json</code> file and installs the Babel transpiler and the plugin to handle the pipeline operator.
+    </p>
+	<p>
+		Next, create a file in your new directory called <code>.babelrc</code> with the following contents:
+		<pre>{
+  "plugins": [
+  	["@babel/plugin-proposal-pipeline-operator", { "proposal": "minimal" }],
+  ]
+}</pre>
+		Then, in your <code>package.json</code>, add this line to the <code>scripts</code> object:
+		<pre>"start": "babel pipe.js --out-file output.js && node output.js"</pre>
+	</p>
+	<p>
+		Now make a file called <code>pipe.js</code> and add some code that uses the pipeline operator to it. You'll be able to run this file with <code>npm start</code>.
+	</p>
+	</section>
+</body>
+</html>
